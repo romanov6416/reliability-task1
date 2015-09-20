@@ -33,6 +33,49 @@ const char * COMMA_STR = ",";
 const char * cur_word = NULL;
 FILE * stream = NULL;
 
+
+#include <iostream>
+#include <string>
+
+class Lexeme
+{
+    LEX_TYPE type;
+    std::string value;
+
+    Lexeme(LEX_TYPE lex_type, const std::string & lex_value): type(lex_type), value(lex_value)
+    {
+
+    }
+
+    LEX_TYPE get_type() { return type; }
+
+    const std::string & get_value() { return value; }
+};
+
+class LexemeParser
+{
+    FILE * stream;
+    Lexeme lexeme;
+
+    LexemeParser(FILE * strm): stream(strm)
+    {
+
+    }
+
+    Lexeme get_lex()
+    {
+        return lexeme;
+    }
+};
+
+
+class SyntaxParser
+{
+
+};
+
+
+
 int extend_capacity(void * data, size_t * capacity)
 {
     const size_t INIT_CAPACITY = 8;
@@ -124,7 +167,7 @@ enum PARSE_CODE init(const char **var_names, const char **var_values)
 
 enum PARSE_CODE function(const char * func_name)
 {
-    if (cur_word == NULL)
+//    if (cur_word == NULL)
 }
 
 int main(int argc, char **argv)
